@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stone Paper Scissor</title>
+</head>
+<body>
+    <h1>Stone Paper Scissor</h1>
+    <p>Choose Any One</p>
+    <div id="image">
+
+    </div>
+    <button onclick="stone()">Stone</button>
+    <button onclick="paper()">Paper</button>
+    <button onclick="scissor()">Scissor</button>
+
+    <script>
+        const arr=["Stone","Paper","Scissor"]
+        function getRandomInt() {
+            return Math.floor(Math.random()*3);
+            }
+
+        function stone(){
+            var v=getRandomInt();
+            console.log(v);
+            console.log("The user : "+"Stone");
+            console.log("The Computer : ",arr[v]);
+            if (arr[v]=="Stone"){
+                console.log("draw");
+            }
+            else if (arr[v]=="Paper")
+            {
+                console.log("Out");
+            }
+            else{
+                console.log("Win");
+            }
+        }
+        function paper(){
+            var v=getRandomInt();
+            console.log(v);
+            console.log("The user : "+"Paper");
+            console.log("The Computer : ",arr[v]);
+         
+            if (arr[v]=="Paper"){
+                console.log("draw");
+            }
+            else if (arr[v]=="Scissor")
+            {
+                console.log("Out");
+            }
+            else{
+                console.log("Win");
+            }
+
+
+        }
+        function scissor(){
+            var v=getRandomInt();
+            console.log(v);
+            console.log("The user : "+"Scissor");
+            console.log("The Computer : ",arr[v]);
+            if (arr[v]=="Scissor"){
+                console.log("draw");
+            }
+            else if (arr[v]=="Stone")
+            {
+                console.log("Out");
+            }
+            else{
+                console.log("Win");
+            }
+
+
+        }
+
+    </script>
+</body>
+
+</html>
