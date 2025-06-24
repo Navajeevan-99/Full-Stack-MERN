@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #dragMe {
+      width: 100px;
+      height: 100px;
+      background-color: lightblue;
+      margin: 10px;
+      cursor: grab;
+    }
+
+    #dropZone {
+      width: 200px;
+      height: 200px;
+      border: 2px dashed #999;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="dragMe" draggable="true">Drag Me</div>
+<div id="dropZone">Drop Here</div>
+
+<script>
+  const dragItem = document.getElementById('dragMe');
+  const dropZone = document.getElementById('dropZone');
+
+  dragItem.addEventListener('dragstart', function (e) {
+    e.dataTransfer.setData('text/plain', 'dragMe');
+    dragItem.style.opacity = 0.5;
+  });
+
+  dragItem.addEventListener('dragend', function () {
+    dragItem.style.opacity = 1;
+  });
+
+  dropZone.addEventListener('dragover', function (e) {
+    e.preventDefault(); // Necessary to allow drop
+    dropZone.style.backgroundColor = '#eee';
+  });
+
+  dropZone.addEventListener('dragleave', function () {
+    dropZone.style.backgroundColor = '';
+  });
+
+  dropZone.addEventListener('drop', function (e) {
+    e.preventDefault();
+    const id = e.dataTransfer.getData('text/plain');
+    const draggedEl = document.getElementById(id);
+    dropZone.appendChild(draggedEl);
+    dropZone.style.backgroundColor = '';
+  });
+</script>
+
+</body>
+</html>
